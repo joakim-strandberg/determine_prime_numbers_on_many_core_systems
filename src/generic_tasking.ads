@@ -10,24 +10,6 @@ with Aida.Strings;
 with Object.Handle;
 with System.Multiprocessors;
 
--- First an instance of this type is created and then is sent to the responsible task.
--- This object knows how manny instances of Command_Type that is to be executed
--- for a work package to be finished. It must be known in advance when a work package
--- is finished because
---
--- 1. Task is informed that is responsible for work package error handling.
--- 2. The commands are created.
--- 3. The responsible task is informed that all commands have been created
---    and distibuted among the worker tasks. It is this message that informs
---    the responsible task for the number of Command_Type instances that
---
--- Given a function that gives an integer to determine if it is prime or not, and that
--- it also has a flag that indicates if it was the last number to determine if it was prime or not.
--- Imagine that when one executes the prime determining work, that it will generate two works that could
--- be done in parallell. Should it be possible to divide this work into smaller pieces or should the user
--- be forced to calculate everything in sequence. It would be nice if it would be easy to create
--- sub-tasks in some way.
-
 generic
    type Queue_Index_Type is range <>;
    type Task_Id_Type is range <>;
