@@ -1,0 +1,19 @@
+with "../gnoga/src/gnoga";
+with "../aida/aida";
+
+project Default is
+
+   for Source_Dirs use ("src");
+   for Object_Dir use "obj";
+   for Main use ("main.adb");
+
+   package Compiler is
+      for Default_Switches ("ada") use ("-gnatwa", "-g", "-gnato", "-fstack-check", "-gnatf", "-O2");
+   end Compiler;
+
+   package Binder is
+      for Default_Switches ("ada") use ("-E");
+   end Binder;
+
+end Default;
+
